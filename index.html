@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#d8c4a9">
+<title>دعوة خطوبة رغدة وبشير</title>
+<style>
+*{box-sizing:border-box}
+:root{--cream:#f7eddf;--gold:#b08b61;--brown:#76583c}
+body{margin:0;min-height:100vh;font-family:"Noto Naskh Arabic",Georgia,serif;color:var(--brown);
+background:linear-gradient(#16231355,#16231377),url("garden-background.jpg") center/cover fixed;
+display:flex;justify-content:center;align-items:center;padding:24px 12px;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;background:#1d281c35;backdrop-filter:blur(5px);z-index:-1}
+main{width:min(100%,520px);text-align:center}
+.intro{color:#fff9ed;text-shadow:0 2px 12px #2c251c;margin:0 0 18px}
+.intro .small{font-size:14px;letter-spacing:2px}
+.intro h1{font-size:clamp(27px,7vw,38px);font-weight:500;margin:4px 0}
+.intro p{font-size:14px;margin:0}
+.scene{position:relative;width:min(92vw,420px);height:650px;margin:auto}
+.envelope{position:absolute;left:0;right:0;top:170px;height:250px;border-radius:5px;
+background:linear-gradient(145deg,#fff8ec,#e8d6bd);border:1px solid #fff5e6;
+box-shadow:0 24px 55px #10160f66,inset 0 0 0 7px #b18d6422;z-index:3}
+.envelope:after{content:"";position:absolute;inset:9px;border:1px solid #b18c6377;pointer-events:none}
+.back{position:absolute;inset:0;background:#ead8c1;clip-path:polygon(0 0,50% 58%,100% 0);z-index:1}
+.fold-left{position:absolute;inset:0;background:linear-gradient(35deg,#f9f0e4,#dfc9ae);clip-path:polygon(0 0,53% 53%,0 100%);z-index:4}
+.fold-right{position:absolute;inset:0;background:linear-gradient(325deg,#f9f0e4,#dfc9ae);clip-path:polygon(100% 0,47% 53%,100% 100%);z-index:4}
+.fold-bottom{position:absolute;inset:0;background:linear-gradient(0deg,#e4cfb5,#fff7eb);clip-path:polygon(0 100%,50% 42%,100% 100%);z-index:5}
+.flap{position:absolute;inset:0;background:linear-gradient(160deg,#fff9ef,#e5d1b8);clip-path:polygon(0 0,100% 0,50% 64%);transform-origin:top;transition:transform .9s ease;z-index:7}
+.seal{position:absolute;top:55%;left:50%;transform:translate(-50%,-50%);width:82px;height:82px;border-radius:48%;
+display:grid;place-items:center;background:radial-gradient(circle at 30% 25%,#fff1d8,#c29b6c 78%);
+border:3px double #fff1d8;box-shadow:0 5px 14px #70543866;color:#795637;font:italic 23px Georgia,serif;z-index:9;transition:opacity .4s}
+.vinyl{position:absolute;width:220px;height:220px;left:50%;top:-104px;transform:translate(-50%,0) scale(.8);
+border-radius:50%;background:repeating-radial-gradient(circle,#171717 0 2px,#292929 3px 4px,#101010 5px 7px);
+border:8px solid #171717;box-shadow:0 8px 22px #17120e77;z-index:2;opacity:0;transition:all 1s ease}
+.vinyl:before{content:"";position:absolute;inset:38%;border-radius:50%;background:#d9bd91;border:2px solid #f3e3c9}
+.vinyl:after{content:"";position:absolute;left:50%;top:50%;width:7px;height:7px;transform:translate(-50%,-50%);border-radius:50%;background:#40372b}
+.card{position:absolute;z-index:2;left:4%;width:92%;height:400px;top:12px;padding:11px;
+background:linear-gradient(145deg,#fff9ef,#f0dfc8);border:1px solid #b18d65;box-shadow:0 14px 32px #21180f55;
+opacity:0;transform:translateY(95px) scale(.96);pointer-events:none;
+transition:transform 1.15s cubic-bezier(.2,.75,.2,1),opacity .55s}
+.card:before{content:"";position:absolute;inset:7px;border:1px solid #c4a27a;pointer-events:none}
+.card-inner{height:100%;border:1px solid #dfc6a2;padding:12px 8px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative}
+.ornament{color:#b18b60;font-size:20px;line-height:1.2}
+.invite-text{font-size:14px;line-height:1.65;margin:5px 0}
+.names{font-size:34px;color:#8a6543;font-weight:bold;margin:0}
+.amp{font:italic 19px Georgia;color:#b18b60;margin:0 8px}
+.info{display:flex;justify-content:center;gap:34px;margin:7px 0}
+.info strong{display:block;font-size:21px}
+.info small{font-size:12px}
+.hall{font-size:19px;margin:0 0 4px}
+.count-label{font-size:12px;margin:2px 0 5px}
+.count{display:flex;gap:6px;direction:rtl}
+.count div{min-width:49px;padding:4px 3px;background:#fff9f0;border:1px solid #d7bd99;border-radius:6px}
+.count b{display:block;font: bold 18px Georgia;color:#805e40}
+.count small{font-size:10px}
+.notice{font-size:11px;line-height:1.6;margin:8px 0 3px}
+.map{font-size:12px;color:#805e40;text-decoration:underline;text-underline-offset:3px}
+.open .flap{transform:rotateX(180deg);z-index:0}
+.open .seal{opacity:0;pointer-events:none}
+.open .vinyl{opacity:1;transform:translate(-50%,0) scale(1);animation:spin 5s linear infinite}
+.open .card{opacity:1;transform:translateY(300px) scale(1);z-index:8;pointer-events:auto}
+@keyframes spin{to{rotate:360deg}}
+.actions{position:relative;z-index:12;margin-top:-5px}
+button{border:1px solid #fff0d9;border-radius:30px;padding:11px 28px;background:linear-gradient(135deg,#fff8ed,#e6d1b7);color:#76563d;font:inherit;font-size:16px;box-shadow:0 6px 18px #20180f44;cursor:pointer}
+#closeBtn[hidden],#openBtn[hidden]{display:none}
+.hint{color:#fff8ed;text-shadow:0 2px 8px #333;font-size:13px;margin:12px 0}
+@media(max-width:390px){.scene{height:630px}.envelope{top:160px;height:230px}.card{height:390px}.open .card{transform:translateY(280px)}.invite-text{font-size:13px}.notice{font-size:10px}.count div{min-width:44px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<main>
+<header class="intro"><div class="small">بكل حبّ وفرح</div><h1>دعوة خطوبة</h1><p>رغدة &amp; بشير</p></header>
+<section class="scene" aria-label="ظرف دعوة الزفاف">
+<article class="card" id="card">
+<div class="card-inner">
+<div class="ornament">❀ ❦ ❀</div>
+<p class="invite-text">إلى كل من نال في قلبي مكانًا عزيزًا،<br>كلّ الودّ أدعوكم لحضور حفل خطوبة ابنتي،<br>ومشاركتنا فرحتنا بهذا اليوم السعيد.</p>
+<div class="names">رغدة <span class="amp">&amp;</span> بشير</div>
+<div class="info"><div><strong>12</strong><small>ديسمبر 2026</small></div><div><strong>7:00</strong><small>مساءً</small></div></div>
+<div class="hall">قاعة روز</div>
+<div class="count-label">الوقت المتبقي على فرحتنا</div>
+<div class="count"><div><b id="d">--</b><small>يوم</small></div><div><b id="h">--</b><small>ساعة</small></div><div><b id="m">--</b><small>دقيقة</small></div><div><b id="s">--</b><small>ثانية</small></div></div>
+<p class="notice">كما نعلمكم أن قاعة روز تمنع اصطحاب الأطفال منعًا باتًا، شاكرين لكم تفهّمكم والتزامكم.</p>
+<a class="map" href="https://maps.app.goo.gl/ivLXacrbPkjiucTt7?g_st=" target="_blank" rel="noopener">⌖ اضغط هنا لفتح موقع قاعة روز على الخريطة</a>
+<div class="ornament">❀ ❦ ❀</div>
+</div>
+</article>
+<div class="vinyl"></div>
+<div class="envelope" id="envelope">
+<div class="back"></div><div class="fold-left"></div><div class="fold-right"></div><div class="fold-bottom"></div><div class="flap"></div>
+<div class="seal">R&amp;B</div>
+</div>
+</section>
+<div class="actions"><button id="openBtn">افتحي الظرف ♡</button><button id="closeBtn" hidden>أغلقي الظرف</button></div>
+<p class="hint" id="hint">اضغطي على الختم لفتح الدعوة</p>
+<audio id="music" src="music.mp3" preload="auto" loop></audio>
+</main>
+<script>
+const env=document.getElementById('envelope'),openBtn=document.getElementById('openBtn'),closeBtn=document.getElementById('closeBtn'),music=document.getElementById('music'),hint=document.getElementById('hint');
+openBtn.addEventListener('click',async()=>{env.classList.add('open');openBtn.hidden=true;closeBtn.hidden=false;hint.textContent='فرحتنا تكتمل بحضوركم ♡';try{music.currentTime=0;await music.play()}catch(e){hint.textContent='تم فتح الدعوة. تحققي من رفع music.mp3 بجانب index.html.'}});
+closeBtn.addEventListener('click',()=>{env.classList.remove('open');music.pause();music.currentTime=0;closeBtn.hidden=true;openBtn.hidden=false;hint.textContent='اضغطي على الختم لفتح الدعوة'});
+const target=new Date('2026-12-12T19:00:00+02:00').getTime();
+function tick(){let x=Math.max(0,target-Date.now());document.getElementById('d').textContent=Math.floor(x/86400000);document.getElementById('h').textContent=String(Math.floor(x%86400000/3600000)).padStart(2,'0');document.getElementById('m').textContent=String(Math.floor(x%3600000/60000)).padStart(2,'0');document.getElementById('s').textContent=String(Math.floor(x%60000/1000)).padStart(2,'0')}
+tick();setInterval(tick,1000);
+</script>
+</body>
+</html>
