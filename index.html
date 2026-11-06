@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#e9dcc9">
+  <title>دعوة خطوبة | رغدة وبشير</title>
+  <style>
+    *{box-sizing:border-box}
+    :root{--gold:#9c744e;--deep:#725237;--cream:#fff8ed;--paper:#f6ecdd}
+    body{
+      margin:0;min-height:100vh;overflow-x:hidden;
+      font-family:"Amiri","Noto Naskh Arabic",Georgia,serif;color:var(--deep);
+      background:
+        linear-gradient(rgba(28,39,24,.30),rgba(28,39,24,.30)),
+        url("assets/garden-background.jpg") center/cover fixed;
+      display:flex;align-items:center;justify-content:center;padding:26px 14px;
+    }
+    body:before{content:"";position:fixed;inset:0;background:rgba(31,38,25,.15);backdrop-filter:blur(8px);z-index:-1}
+    .page{width:min(100%,620px);text-align:center}
+    .heading{color:#fffaf0;text-shadow:0 2px 12px #342719;margin-bottom:18px}
+    .heading .eyebrow{font-size:14px;letter-spacing:2px}
+    .heading h1{font-size:clamp(27px,7vw,40px);font-weight:500;margin:4px 0}
+    .heading p{margin:0;font-size:17px}
+    .hint{color:#fff8ed;font-size:14px;margin:14px 0 0;text-shadow:0 2px 8px #333}
+    .stage{width:min(92vw,440px);height:390px;margin:0 auto;position:relative;perspective:1200px}
+    .envelope{
+      position:absolute;left:0;right:0;bottom:12px;height:245px;
+      border-radius:5px;
+      background:linear-gradient(145deg,#fffaf1,#e7d4bc 65%,#f8eedf);
+      border:1px solid rgba(255,255,255,.95);
+      box-shadow:0 24px 48px rgba(20,20,14,.35),inset 0 0 0 8px rgba(171,132,88,.12);
+      z-index:3;
+    }
+    .envelope:after{content:"";position:absolute;inset:9px;border:1px solid rgba(159,119,75,.48);pointer-events:none}
+    .back-flap{position:absolute;inset:0;background:#ead9c3;clip-path:polygon(0 0,50% 55%,100% 0);z-index:0}
+    .left-fold{position:absolute;inset:0;background:linear-gradient(40deg,#f9f0e4,#e4cfb5);clip-path:polygon(0 0,53% 54%,0 100%);z-index:3}
+    .right-fold{position:absolute;inset:0;background:linear-gradient(320deg,#f9f0e4,#e4cfb5);clip-path:polygon(100% 0,47% 54%,100% 100%);z-index:3}
+    .bottom-fold{position:absolute;inset:0;background:linear-gradient(0deg,#e6d1b8,#fff7eb);clip-path:polygon(0 100%,50% 43%,100% 100%);z-index:4}
+    .top-flap{
+      position:absolute;inset:0;background:linear-gradient(160deg,#fff9ee,#e7d4bd);
+      clip-path:polygon(0 0,100% 0,50% 62%);transform-origin:top;
+      transition:transform 1s ease;z-index:6;filter:drop-shadow(0 5px 4px #765b3d33)
+    }
+    .seal{
+      position:absolute;left:50%;top:55%;transform:translate(-50%,-50%);
+      width:76px;height:76px;border-radius:48%;display:grid;place-items:center;
+      color:#805b3b;font:italic 23px Georgia,serif;
+      background:radial-gradient(circle at 35% 25%,#fff4df,#c6a47c 78%);
+      border:2px solid #fff0d7;box-shadow:0 4px 12px #70543855;z-index:8;
+      transition:opacity .35s
+    }
+    .invitation{
+      position:absolute;z-index:2;left:5%;width:90%;height:360px;bottom:22px;
+      padding:13px;background:linear-gradient(145deg,#fffaf2,#f0e1cc);
+      border:1px solid #b99770;box-shadow:0 12px 28px #30231555;
+      opacity:0;transform:translateY(65px) scale(.94);pointer-events:none;
+      transition:transform 1.25s cubic-bezier(.2,.75,.2,1),opacity .6s;
+    }
+    .invitation:before{content:"";position:absolute;inset:7px;border:1px solid #c3a27b;pointer-events:none}
+    .paper-inner{
+      position:relative;height:100%;border:1px solid #ddc5a3;padding:13px 9px;
+      display:flex;flex-direction:column;align-items:center;justify-content:center;
+    }
+    .ornament{font-size:21px;color:#b28c62;line-height:1.2}
+    .welcome{font-size:16px;line-height:1.8;margin:5px 0 8px}
+    .names{font-size:clamp(29px,7vw,38px);font-weight:bold;color:#906a45;margin:2px 0 0}
+    .amp{font:italic 18px Georgia,serif;color:#b28c62;margin:0 8px}
+    .occasion{font-size:16px;margin:0}
+    .details{display:flex;align-items:center;justify-content:center;gap:20px;margin:10px 0 7px;flex-wrap:wrap}
+    .detail{min-width:74px}
+    .detail .symbol{font-size:22px;color:#a17b52}
+    .detail strong{display:block;font-size:19px;font-weight:600}
+    .detail small{font-size:13px}
+    .venue{font-size:19px;margin:2px 0 8px}
+    .notice{font-size:13px;line-height:1.8;margin:4px 0 0;max-width:320px}
+    .closing{font-size:13px;margin-top:5px;color:#9b7956}
+    .open .top-flap{transform:rotateX(180deg);z-index:0}
+    .open .seal{opacity:0;pointer-events:none}
+    .open .invitation{opacity:1;transform:translateY(-155px) scale(1);z-index:7;pointer-events:auto}
+    .controls{display:flex;justify-content:center;gap:10px;margin-top:3px}
+    button{
+      border:1px solid #fff0d9;border-radius:30px;padding:11px 25px;
+      background:linear-gradient(135deg,#fff8ed,#e6d1b7);color:#76563d;
+      font:inherit;font-size:16px;cursor:pointer;box-shadow:0 6px 18px #20180f44;
+      transition:transform .2s,filter .2s
+    }
+    button:hover{transform:translateY(-2px);filter:brightness(1.04)}
+    button:focus-visible{outline:3px solid white;outline-offset:3px}
+    .footer{color:#fff8ed;font-size:12px;margin-top:16px;text-shadow:0 2px 8px #333}
+    @media(max-width:420px){
+      .stage{height:370px}
+      .envelope{height:220px}
+      .invitation{height:345px}
+      .open .invitation{transform:translateY(-145px) scale(1)}
+      .paper-inner{padding:9px 5px}
+      .welcome{font-size:14px}
+      .notice{font-size:12px}
+      .details{gap:12px;margin:7px 0 4px}
+    }
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important}}
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="heading">
+      <div class="eyebrow">بكل حبّ وفرح</div>
+      <h1>دعوة خطوبة</h1>
+      <p>لحظة جميلة نحب أن نشارككم بها</p>
+    </header>
+
+    <section class="stage" aria-label="ظرف دعوة الخطوبة">
+      <div class="envelope" id="envelope">
+        <div class="back-flap"></div>
+        <article class="invitation" aria-label="بطاقة الدعوة">
+          <div class="paper-inner">
+            <div class="ornament">❀ ❦ ❀</div>
+            <p class="welcome">إلى كل من نال في قلبي مكانًا عزيزًا،<br>
+              بكل ودّ أدعوكم لحضور حفل خطوبة ابنتي،<br>ومشاركتنا فرحتنا بهذا اليوم المميز.</p>
+            <div class="names">رغدة <span class="amp">&amp;</span> بشير</div>
+            <p class="occasion">على أمل أن تكتمل فرحتنا بوجودكم</p>
+            <div class="details">
+              <div class="detail"><span class="symbol">♧</span><strong>12</strong><small>ديسمبر</small></div>
+              <div class="detail"><span class="symbol">◷</span><strong>7:00</strong><small>مساءً</small></div>
+            </div>
+            <div class="venue">قاعة روز</div>
+            <p class="notice">كما نعلمكم أن قاعة روز تمنع اصطحاب الأطفال منعًا باتًا، شاكرين لكم تفهّمكم والتزامكم.</p>
+            <div class="closing">بحضوركم تكتمل فرحتنا ♡</div>
+            <div class="ornament">❀ ❦ ❀</div>
+          </div>
+        </article>
+        <div class="left-fold"></div>
+        <div class="right-fold"></div>
+        <div class="bottom-fold"></div>
+        <div class="top-flap"></div>
+        <div class="seal">R&amp;B</div>
+      </div>
+    </section>
+
+    <div class="controls">
+      <button id="openBtn" type="button">افتحي الظرف ♡</button>
+      <button id="closeBtn" type="button" hidden>إغلاق الظرف</button>
+    </div>
+    <p class="hint" id="hint">اضغطي على الزر لفتح الظرف واكتشاف الدعوة</p>
+    <p class="footer">بكل المحبة، ننتظر مشاركتكم فرحتنا</p>
+    <audio id="music" src="assets/music.mp3" preload="auto" loop></audio>
+  </main>
+
+  <script>
+    const envelope = document.getElementById("envelope");
+    const openBtn = document.getElementById("openBtn");
+    const closeBtn = document.getElementById("closeBtn");
+    const music = document.getElementById("music");
+    const hint = document.getElementById("hint");
+
+    openBtn.addEventListener("click", async () => {
+      envelope.classList.add("open");
+      openBtn.hidden = true;
+      closeBtn.hidden = false;
+      hint.textContent = "أهلًا وسهلًا بكم، شكرًا لمشاركتنا فرحتنا ♡";
+      try {
+        music.currentTime = 0;
+        await music.play();
+      } catch (error) {
+        hint.textContent = "تم فتح الدعوة ♡ إذا لم تعمل الموسيقى، اضغطي مرة أخرى على الشاشة.";
+      }
+    });
+
+    closeBtn.addEventListener("click", () => {
+      envelope.classList.remove("open");
+      music.pause();
+      music.currentTime = 0;
+      closeBtn.hidden = true;
+      openBtn.hidden = false;
+      hint.textContent = "اضغطي على الزر لفتح الظرف واكتشاف الدعوة";
+    });
+  </script>
+</body>
+</html>
