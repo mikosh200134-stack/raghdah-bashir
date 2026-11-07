@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f5dfe0">
+<title>دعوة خطوبة رغدة وبشير</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700&display=swap');
+:root{
+ --rose:#bd808b;--rose-dark:#985d69;--rose-light:#f4dfe0;
+ --blush:#fff7f4;--paper:#fffaf7;--gold:#bd9873;--ink:#68484a;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+ margin:0;min-height:100vh;color:var(--ink);font-family:'Cairo',sans-serif;
+ background:radial-gradient(ellipse at top,#fffaf8 0,#f8e9e7 48%,#efd5d8 100%);
+}
+body:before{content:"";position:fixed;inset:10px;border:1px solid #d8aeb1;pointer-events:none;z-index:10}
+main{width:min(100%,560px);margin:auto;padding:24px 17px 64px}
+.topline{text-align:center;color:#b17d83;font:16px 'Amiri',serif;letter-spacing:1px;margin:8px 0 22px}
+.envelope-stage{min-height:calc(100svh - 55px);display:grid;place-items:center;perspective:1000px}
+.envelope-wrap{width:min(88vw,390px);text-align:center}
+.envelope{
+ height:260px;position:relative;overflow:hidden;cursor:pointer;border-radius:8px 8px 13px 13px;
+ background:linear-gradient(145deg,#e8c6c6,#c88f98);box-shadow:0 24px 45px #a96e7538;
+ border:1px solid #d7aeb0;transition:transform .35s ease;
+}
+.envelope:hover{transform:translateY(-4px)}
+.envelope:before{content:"";position:absolute;inset:0;background:linear-gradient(145deg,transparent 49.5%,#f1d9d5 50%,#d6a4aa 100%);clip-path:polygon(0 0,100% 0,50% 65%);z-index:2}
+.envelope:after{content:"";position:absolute;inset:0;background:linear-gradient(35deg,#c88d96 0 49.5%,transparent 50%);clip-path:polygon(0 100%,0 0,50% 62%);z-index:1}
+.env-bottom{position:absolute;inset:0;background:linear-gradient(145deg,#d9aeb2,#bd808b);clip-path:polygon(0 100%,100% 100%,50% 48%);z-index:3}
+.env-label{position:absolute;z-index:4;left:0;right:0;top:21%;color:#fff8f4;font:30px 'Amiri',serif;text-shadow:0 1px 3px #80545a}
+.seal{position:absolute;z-index:4;left:50%;top:55%;transform:translate(-50%,-50%);width:68px;height:68px;border-radius:50%;display:grid;place-items:center;color:#fff8f4;font:31px 'Amiri',serif;background:radial-gradient(circle,#e9c8c5,#bd858c);border:2px solid #f4d9d5;box-shadow:0 3px 10px #81535a35}
+.open-hint{font:20px 'Amiri',serif;color:#a56e78;margin:22px 0 5px}
+.subhint{font-size:12px;color:#b18a8c}
+.invitation{display:none;animation:fadeUp .8s ease both}
+.invitation.show{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.photo-frame{background:#fff8f6;padding:8px;border:1px solid #d8aeb0;box-shadow:0 14px 35px #a96e7524;margin:12px 0 24px;border-radius:5px}
+.invitation-photo{display:block;width:100%;height:auto;border-radius:2px}
+.message-card,.info-card,.notice,.rsvp-card{
+ background:rgba(255,250,247,.94);border:1px solid #dfb9b5;box-shadow:0 8px 24px #a96e7512;
+}
+.message-card{text-align:center;padding:22px 17px;margin:20px 0}
+.ornament{font:24px 'Amiri',serif;color:#c28d8c;letter-spacing:4px}
+.message-card p{font:23px/1.9 'Amiri',serif;margin:10px 0;color:#79585a}
+.names{font:35px 'Amiri',serif;color:#985d69;margin:4px 0}
+.section-title{text-align:center;font:29px 'Amiri',serif;color:#985d69;margin:30px 0 14px}
+.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.countdown div{background:#fae9e7;border:1px solid #e7c7c3;padding:12px 3px;text-align:center}
+.countdown b{display:block;font:27px 'Amiri',serif;color:#985d69}
+.countdown span{font-size:11px;color:#a8757b}
+.info-card{display:grid;grid-template-columns:1fr 1fr;gap:0;overflow:hidden}
+.info{padding:17px 8px;text-align:center;border-bottom:1px solid #ead0cd}
+.info:nth-child(odd){border-left:1px solid #ead0cd}
+.info .symbol{font-size:24px;color:#bd8587}
+.info b{display:block;font:21px 'Amiri',serif;color:#985d69}
+.info small{font-size:12px;color:#a1847c}
+.map-area{text-align:center;margin:18px 0 25px}
+.mapbtn,.sendbtn{
+ display:inline-block;text-decoration:none;border:0;border-radius:30px;
+ background:linear-gradient(135deg,#bd808b,#985d69);color:#fffaf7;
+ padding:13px 25px;font:16px 'Cairo',sans-serif;cursor:pointer;
+ box-shadow:0 5px 15px #a96e752c;
+}
+.mapbtn:active,.sendbtn:active{transform:scale(.98)}
+.notice{padding:20px 16px;text-align:center;font:20px/1.9 'Amiri',serif;color:#79585a;margin:25px 0}
+.notice strong{display:block;color:#985d69;font-size:24px;margin-bottom:5px}
+.rsvp-card{padding:22px 18px;margin-top:15px}
+form{display:grid;gap:11px}
+label{font-size:14px;color:#8d6269}
+input,select{width:100%;padding:13px;border:1px solid #e2c3c0;border-radius:8px;background:#fffaf8;font:15px 'Cairo',sans-serif;color:#714d4e}
+.sendbtn{width:100%;margin-top:7px}
+.music-control{
+ position:fixed;left:18px;bottom:18px;z-index:12;width:49px;height:49px;border-radius:50%;
+ border:1px solid #dfb9b5;background:#fff5f2;color:#995d69;font-size:21px;
+ box-shadow:0 4px 15px #443b2522;display:none;
+}
+footer{text-align:center;color:#b17d83;font:18px 'Amiri',serif;margin:30px 0 0}
+@media(max-width:380px){.envelope{height:230px}.message-card p{font-size:20px}.names{font-size:31px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<audio id="bgMusic" src="music.mp3" preload="auto" loop></audio>
+<button class="music-control" id="musicToggle" aria-label="تشغيل أو إيقاف الموسيقى">♫</button>
+
+<main>
+ <div class="topline">دعوة خاصة • بكل المحبة</div>
+
+ <section class="envelope-stage" id="envelopeStage">
+  <div class="envelope-wrap">
+   <div class="envelope" id="openEnvelope" role="button" tabindex="0" aria-label="افتحي الدعوة">
+    <div class="env-label">دعوة خطوبة</div>
+    <div class="env-bottom"></div>
+    <div class="seal">ر ♥ ب</div>
+   </div>
+   <div class="open-hint">بكل الحب… إليكِ هذه الدعوة</div>
+   <div class="subhint">اضغطي على الظرف لفتح الدعوة</div>
+  </div>
+ </section>
+
+ <section class="invitation" id="invitation">
+  <div class="photo-frame">
+   <img class="invitation-photo" src="invitation-photo.jpg" alt="بطاقة دعوة خطوبة رغدة وبشير الوردية">
+  </div>
+
+  <div class="message-card">
+   <div class="ornament">✧ ❧ ✧</div>
+   <p>إلى كل من نال في قلبي مكانًا عزيزًا، بكل ودّ أدعوكم لحضور خطوبتي.</p>
+   <div class="names">رغدة ♡ بشير</div>
+   <div class="ornament">❦</div>
+  </div>
+
+  <h2 class="section-title">العدّ التنازلي لفرحتنا</h2>
+  <div class="countdown" aria-live="polite">
+   <div><b id="days">--</b><span>يوم</span></div>
+   <div><b id="hours">--</b><span>ساعة</span></div>
+   <div><b id="minutes">--</b><span>دقيقة</span></div>
+   <div><b id="seconds">--</b><span>ثانية</span></div>
+  </div>
+
+  <h2 class="section-title">تفاصيل الحفل</h2>
+  <div class="info-card">
+   <div class="info"><div class="symbol">♡</div><b>رغدة وبشير</b><small>أصحاب الفرحة</small></div>
+   <div class="info"><div class="symbol">⌖</div><b>قاعة روز</b><small>مكان الاحتفال</small></div>
+   <div class="info"><div class="symbol">▦</div><b>12 ديسمبر 2026</b><small>موعد الخطوبة</small></div>
+   <div class="info"><div class="symbol">◷</div><b>7:00 مساءً</b><small>موعد استقبالكم</small></div>
+  </div>
+
+  <div class="map-area">
+   <a class="mapbtn" href="https://maps.app.goo.gl/ivLXacrbPkjiucTt7?g_st=" target="_blank" rel="noopener noreferrer">⌖ افتحي موقع قاعة روز على الخريطة</a>
+  </div>
+
+  <div class="notice">
+   <strong>تنويه مهم</strong>
+   كما نعلمكم أن قاعة روز تمنع اصطحاب الأطفال منعًا باتًا، شاكرين لكم تفهّمكم والتزامكم.
+  </div>
+
+  <h2 class="section-title">تأكيد الحضور</h2>
+  <div class="rsvp-card">
+   <form id="rsvpForm">
+    <label for="guestName">الاسم الكريم</label>
+    <input id="guestName" type="text" placeholder="اكتبي اسمك" required>
+    <label for="attendance">هل ستتمكنين من الحضور؟</label>
+    <select id="attendance" required>
+     <option value="">اختاري الإجابة</option>
+     <option value="يسعدني الحضور">نعم، يسعدني الحضور</option>
+     <option value="أعتذر عن الحضور">أعتذر عن الحضور</option>
+    </select>
+    <button class="sendbtn" type="submit">إرسال تأكيد الحضور عبر واتساب</button>
+   </form>
+  </div>
+  <footer>بكل الحب… ننتظركم لتشاركونا فرحتنا ♡</footer>
+ </section>
+</main>
+
+<script>
+const music = document.getElementById('bgMusic');
+const musicBtn = document.getElementById('musicToggle');
+const envelope = document.getElementById('openEnvelope');
+
+function openInvite(){
+ document.getElementById('envelopeStage').style.display='none';
+ document.getElementById('invitation').classList.add('show');
+ musicBtn.style.display='block';
+ music.play().then(()=>musicBtn.textContent='♫').catch(()=>musicBtn.textContent='▶');
+ setTimeout(()=>document.getElementById('invitation').scrollIntoView({behavior:'smooth'}),80);
+}
+envelope.addEventListener('click',openInvite);
+envelope.addEventListener('keydown',event=>{
+ if(event.key==='Enter'||event.key===' '){event.preventDefault();openInvite();}
+});
+musicBtn.addEventListener('click',()=>{
+ if(music.paused){music.play().then(()=>musicBtn.textContent='♫').catch(()=>musicBtn.textContent='▶');}
+ else{music.pause();musicBtn.textContent='▶';}
+});
+
+function updateCountdown(){
+ const target=new Date(2026,11,12,19,0,0);
+ const diff=Math.max(0,target.getTime()-Date.now());
+ const values=[
+  Math.floor(diff/86400000),
+  Math.floor(diff/3600000)%24,
+  Math.floor(diff/60000)%60,
+  Math.floor(diff/1000)%60
+ ];
+ ['days','hours','minutes','seconds'].forEach((id,index)=>{
+  document.getElementById(id).textContent=String(values[index]).padStart(2,'0');
+ });
+}
+updateCountdown();
+setInterval(updateCountdown,1000);
+
+document.getElementById('rsvpForm').addEventListener('submit',event=>{
+ event.preventDefault();
+ const name=document.getElementById('guestName').value.trim();
+ const answer=document.getElementById('attendance').value;
+ const message=`تأكيد حضور لخطوبة رغدة وبشير\nالاسم: ${name}\nالرد: ${answer}`;
+ window.open('https://wa.me/?text='+encodeURIComponent(message),'_blank','noopener');
+});
+</script>
+</body>
+</html>
